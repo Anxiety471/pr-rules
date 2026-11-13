@@ -1,0 +1,7 @@
+diff --git a/vendor/acme/sdk/config.php b/vendor/acme/sdk/config.php
+new file mode 100644
+--- /dev/null
++++ b/vendor/acme/sdk/config.php
+@@ -0,0 +1,2 @@
++<?php
++return ['key' => 'AKIAIOSFODNN7EXAMPLE'];

@@ -1,0 +1,7 @@
+diff --git a/storage/deploy_key b/storage/deploy_key
+new file mode 100644
+--- /dev/null
++++ b/storage/deploy_key
+@@ -0,0 +1,2 @@
++-----BEGIN OPENSSH PRIVATE KEY-----
++b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW

@@ -1,0 +1,7 @@
+diff --git a/tests/Fixtures/AwsTest.php b/tests/Fixtures/AwsTest.php
+--- a/tests/Fixtures/AwsTest.php
++++ b/tests/Fixtures/AwsTest.php
+@@ -1,2 +1,2 @@
+ <?php
+-// placeholder
++$id = 'AKIAIOSFODNN7EXAMPLE'; // pr-rules:allow - documented dummy key from the AWS docs

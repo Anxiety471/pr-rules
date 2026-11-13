@@ -1,0 +1,7 @@
+diff --git a/deploy.sh b/deploy.sh
+--- a/deploy.sh
++++ b/deploy.sh
+@@ -3,2 +3,3 @@ set -e
+ git pull
++export GH_TOKEN="ghp_aBcDeFgHiJkLmNoPqRsTuVwXyZ0123456789"
+ ./deploy.sh

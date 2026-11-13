@@ -1,0 +1,64 @@
+name: PR rules
+description: House rules for pull requests — staging flow, branch naming, no drafts, no credentials in the diff. Read-only: needs no token and no write permission.
+author: Anxiety471
+
+branding:
+  icon: shield
+  color: gray
+
+inputs:
+  staging-branch:
+    description: The only branch allowed to merge into the main branch.
+    required: false
+    default: staging
+  main-branch:
+    description: The protected branch that only the staging branch may merge into.
+    required: false
+    default: main
+  require-staging-flow:
+    description: Set to false for repos that do not use a staging branch.
+    required: false
+    default: "true"
+  branch-pattern:
+    description: Extended regex the head branch name must match. Empty means the house pattern.
+    required: false
+    default: ""
+  allow-draft:
+    description: Set to true to allow draft PRs.
+    required: false
+    default: "false"
+  scan-secrets:
+    description: Set to false to skip the added-lines credential scan.
+    required: false
+    default: "true"
+  require-issue-reference:
+    description: Set to true to require a #123 or HIT-123 reference in the title or body.
+    required: false
+    default: "false"
+  max-title-length:
+    description: Soft limit for the PR title, reported as a warning only.
+    required: false
+    default: "72"
+
+runs:
+  using: composite
+  steps:
+    - name: Check PR rules
+      shell: bash
+      env:
+        BASE_REF: ${{ github.base_ref }}
+        HEAD_REF: ${{ github.head_ref }}
+        HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+        BASE_REPO: ${{ github.repository }}
+        PR_DRAFT: ${{ github.event.pull_request.draft }}
+        PR_TITLE: ${{ github.event.pull_request.title }}
+        PR_BODY: ${{ github.event.pull_request.body }}
+        INPUT_STAGING_BRANCH: ${{ inputs.staging-branch }}
+        INPUT_MAIN_BRANCH: ${{ inputs.main-branch }}
+        INPUT_REQUIRE_STAGING_FLOW: ${{ inputs.require-staging-flow }}
+        INPUT_BRANCH_PATTERN: ${{ inputs.branch-pattern }}
+        INPUT_ALLOW_DRAFT: ${{ inputs.allow-draft }}
+        INPUT_SCAN_SECRETS: ${{ inputs.scan-secrets }}
+        INPUT_REQUIRE_ISSUE_REFERENCE: ${{ inputs.require-issue-reference }}
+        INPUT_MAX_TITLE_LENGTH: ${{ inputs.max-title-length }}
+      run: bash "${{ github.action_path }}/pr-rules.sh"

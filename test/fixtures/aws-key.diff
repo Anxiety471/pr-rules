@@ -1,0 +1,8 @@
+diff --git a/config/services.php b/config/services.php
+--- a/config/services.php
++++ b/config/services.php
+@@ -10,3 +10,4 @@ return [
+     'mail' => [
+         'region' => 'ap-southeast-1',
++        'key' => 'AKIAIOSFODNN7EXAMPLE',
+     ],

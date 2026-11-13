@@ -1,0 +1,8 @@
+diff --git a/.env.example b/.env.example
+--- a/.env.example
++++ b/.env.example
+@@ -1,2 +1,3 @@
+ APP_NAME=PNRS
++DB_PASSWORD=changeme
++MAIL_PASSWORD=your-app-password
+ DB_HOST=127.0.0.1
