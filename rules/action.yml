@@ -1,5 +1,5 @@
 name: PR rules
-description: House rules for pull requests — staging flow, branch naming, no drafts, no credentials in the diff. Read-only: needs no token and no write permission.
+description: "House rules for pull requests - staging flow, branch naming, no drafts, no credentials in the diff. Read-only, needs no token and no write permission."
 author: Anxiety471
 
 branding:
